@@ -5,7 +5,7 @@ export default function Layout({ children, home }) {
   return (
     <>
       <Head>
-        <title>REST prcatice</title>
+        <title>REST pracatice</title>
       </Head>
       <header>
         <nav className="m-3">

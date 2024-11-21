@@ -24,18 +24,23 @@ export async function getStaticPaths() {
 
 //export our dynamically routed page component 'Entry'
 export default function Entry({ fruitItemData }) {
+  function postMarkup() {
+    return { __html: fruitItemData.post_content };
+  }
   return (
     <Layout>
       <article className="card col-6">
         <div className="card-body">
           {fruitItemData && (
             <>
-              <h2 className="card-title">{fruitItemData.icon}</h2>
+              <h2 className="card-title">{fruitItemData.post_title}</h2>
               <h3 className="card-subtitle mb-2 text-body-secondary">
-                {fruitItemData.name}
+                {fruitItemData.user_login}
               </h3>
-              <p className="card-text">{fruitItemData.description}</p>
-              <p className="card-link">{fruitItemData.rating}</p>
+              <div
+                className="card-text"
+                dangerouslySetInnerHTML={postMarkup()}
+              />
             </>
           )}
         </div>
